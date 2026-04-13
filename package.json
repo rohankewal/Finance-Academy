@@ -1,0 +1,38 @@
+{
+  "name": "finance-academy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lessons:new": "tsx scripts/new-lesson.ts",
+    "lessons:plan": "tsx scripts/plan-track.ts",
+    "lessons:validate": "tsx scripts/validate-lessons.ts",
+    "lessons:audit": "tsx scripts/audit-lessons.ts",
+    "lessons:audit:json": "tsx scripts/audit-lessons.ts -- --json",
+    "precommit": "npm run lessons:validate"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-vercel": "^5.4.4",
+    "@sveltejs/kit": "^2.15.2",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.10.0",
+    "autoprefixer": "^10.4.20",
+    "mdsvex": "^0.11.2",
+    "postcss": "^8.4.49",
+    "svelte": "^5.16.0",
+    "svelte-check": "^4.1.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "bits-ui": "^1.3.15",
+    "lucide-svelte": "^0.468.0"
+  },
+  "type": "module"
+}

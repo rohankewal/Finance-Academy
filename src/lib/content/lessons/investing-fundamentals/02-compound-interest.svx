@@ -1,0 +1,120 @@
+---
+title: "Compound Interest: The 8th Wonder"
+description: "Learn how your money can make money, and why starting early matters more than anything."
+estimatedMinutes: 7
+track: "investing-fundamentals"
+order: 2
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import CompoundInterestCalc from '$lib/components/calculators/CompoundInterestCalc.svelte';
+</script>
+
+## The Big Idea
+
+Compound interest means your money earns money — and then *that money* earns money too. Whether or not Einstein actually called it the eighth wonder of the world, the math is real and it's the engine behind almost every substantial personal fortune.
+
+Simple interest: you earn interest only on your original investment.
+Compound interest: you earn interest on your original investment *plus* on all the interest you've already earned.
+
+The difference sounds small. Over decades, it's enormous.
+
+## A Real Example
+
+Imagine you invest $1,000 at age 20 in an index fund earning an average 8% per year. You never add another dollar. You just let it sit.
+
+- At age 30: **$2,159**
+- At age 40: **$4,661**
+- At age 50: **$10,063**
+- At age 65: **$31,920**
+
+Your original $1,000 turns into $31,920 — without you lifting a finger. That's a 31x return, and it required nothing but patience.
+
+Now add consistent contributions. If you invest $200/month starting at age 25 in addition to your initial $1,000:
+- After 10 years: ~$38,000
+- After 20 years: ~$119,000
+- After 30 years: ~$298,000
+- After 40 years: ~$688,000
+
+You contributed $96,200 of your own money over 40 years. Interest did the rest.
+
+<TryItYourself title="See Your Money Grow">
+  <CompoundInterestCalc initialPrincipal={1000} initialMonthlyContrib={200} initialRate={8} initialYears={40} />
+</TryItYourself>
+
+## Why Starting Early Beats Investing More
+
+Meet Anna and Ben. This comparison is worth memorizing.
+
+**Anna** starts investing $300/month at age 22. She stops at age 32 — just 10 years — and never invests another dollar. Her money sits untouched until age 65 at 8% annual returns.
+
+Total invested by Anna: **$36,000**
+
+**Ben** starts investing $300/month at age 32 and keeps investing every month until age 65 — 33 years of contributions. Same 8% returns.
+
+Total invested by Ben: **$118,800**
+
+At 65, who has more money?
+
+- Anna: **$648,000**
+- Ben: **$580,000**
+
+Anna invested $82,800 *less* than Ben — and ends up with $68,000 *more*. The only difference is that Anna started 10 years earlier and let compound interest do its work for a full decade before Ben even started.
+
+This is the most important lesson in personal finance: **time in the market beats the amount you invest.** The sooner you start — even with small amounts — the better.
+
+## The Rule of 72
+
+Here's a quick mental math shortcut for estimating how long it takes your money to double: divide 72 by your annual return rate.
+
+- At 6% return: 72 ÷ 6 = **12 years to double**
+- At 8% return: 72 ÷ 8 = **9 years to double**
+- At 10% return: 72 ÷ 10 = **7.2 years to double**
+
+The same rule applies to debt against you. At 24% APR on a credit card: 72 ÷ 24 = **3 years for your balance to double** if you're not making payments. Compound interest is powerful — make sure it's working for you, not against you.
+
+## The Enemy of Compound Interest: Fees
+
+Here's a number that will make you angry: a 1% annual management fee on a $100,000 investment costs about $30,000 over 20 years in lost growth. Not $20,000 (what 1% of $100,000 × 20 years would be) — but $30,000, because you're paying fees on returns that would have compounded.
+
+This is why low-cost index funds are so important. The difference between a fund charging 1% annually and one charging 0.05% isn't just 0.95 percentage points — over 30 years, it's a massive difference in final wealth.
+
+Never pay more than 0.2% for a broad market index fund. Most great options (Fidelity ZERO funds, Vanguard Total Market, Schwab funds) charge 0.03–0.10%.
+
+## Compound Interest Working Against You
+
+Everything we've discussed about compound interest helping you also applies in reverse with debt.
+
+If you carry a $5,000 credit card balance at 22% APR and only make minimum payments, compound interest is working ferociously against you. The bank is earning 22% compounding daily on your balance. Every month you don't pay it down, the interest is added to the balance and next month's interest calculation grows.
+
+This is why high-interest debt is the anti-investment — it's compound interest on the wrong side of the ledger.
+
+## One Action That Compounds Your Entire Future
+
+The single highest-leverage financial decision most people under 30 can make is this: open a Roth IRA (or maximize your 401k) and invest in a low-cost index fund, starting today.
+
+Even $50/month at age 22 at 8% grows to about $185,000 by age 65. The same $50/month starting at 32 grows to about $86,000. You'd need to invest more than twice as much per month starting at 32 to match what $50/month achieves starting at 22.
+
+Don't wait until you're "making enough to invest." Start with what you have. The clock is always running.
+
+<KeyTakeaways points={[
+  "Compound interest = earning returns on your returns, not just your original investment",
+  "Starting 10 years earlier can beat investing 3x as much — time is the most powerful variable",
+  "The Rule of 72: divide 72 by your return rate to estimate how long it takes to double",
+  "Investment fees compound against you — always choose low-cost index funds",
+  "High-interest debt is compound interest working against you — pay it down aggressively"
+]} />
+
+<QuickQuiz
+  question="If you invest $5,000 at age 25 at 7% annual return and never add more, roughly how much will you have at 65?"
+  options={[
+    { text: "$15,000", correct: false },
+    { text: "$40,000", correct: false },
+    { text: "$75,000", correct: true },
+    { text: "$200,000", correct: false }
+  ]}
+  explanation="At 7% annual return over 40 years, $5,000 becomes about $74,872. Using the Rule of 72: money doubles every 72÷7 ≈ 10.3 years. Over 40 years, it doubles roughly 4 times: $5,000 → $10,000 → $20,000 → $40,000 → $80,000. Time does the heavy lifting."
+/>

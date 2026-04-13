@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--color-primary: 5 150 105;
+		--color-primary-dark: 6 95 70;
+		--color-accent: 245 158 11;
+		--color-danger: 220 38 38;
+		--color-success: 22 163 74;
+		--color-bg: 255 255 255;
+		--color-surface: 250 250 250;
+		--color-border: 228 228 231;
+		--color-text: 24 24 27;
+		--color-text-muted: 82 82 91;
+
+		--sidebar-width: 280px;
+		--topnav-height: 60px;
+	}
+
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 16px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		background-color: rgb(var(--color-bg));
+		color: rgb(var(--color-text));
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	:focus-visible {
+		outline: 2px solid rgb(var(--color-primary));
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+
+	::selection {
+		background-color: rgb(var(--color-primary) / 0.15);
+		color: rgb(var(--color-text));
+	}
+
+	/* Smooth scrolling */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Scrollbar styling */
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background: rgb(var(--color-surface));
+	}
+	::-webkit-scrollbar-thumb {
+		background: rgb(var(--color-border));
+		border-radius: 3px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(var(--color-text-muted) / 0.5);
+	}
+}
+
+@layer components {
+	/* Lesson prose overrides */
+	.lesson-content {
+		font-size: 1.0625rem;
+		line-height: 1.75;
+	}
+
+	/* Calculator number font */
+	.font-calc {
+		font-family: 'JetBrains Mono', monospace;
+		font-feature-settings: 'tnum' 1;
+	}
+
+	/* Sidebar active state */
+	.sidebar-link-active {
+		background-color: rgb(var(--color-primary) / 0.08);
+		color: rgb(var(--color-primary));
+		font-weight: 600;
+	}
+
+	/* Card hover */
+	.card-hover {
+		transition: box-shadow 0.15s ease, transform 0.15s ease;
+	}
+	.card-hover:hover {
+		box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+		transform: translateY(-1px);
+	}
+
+	/* Gradient text */
+	.text-gradient {
+		background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-primary-dark)));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	/* Track accent colors */
+	.track-emerald { --track-accent: 5 150 105; }
+	.track-amber { --track-accent: 245 158 11; }
+	.track-blue { --track-accent: 59 130 246; }
+}

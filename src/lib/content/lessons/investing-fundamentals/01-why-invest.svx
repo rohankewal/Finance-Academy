@@ -1,0 +1,101 @@
+---
+title: "Why Investing Matters"
+description: "Why keeping money in a savings account is actually losing money — and what to do instead."
+estimatedMinutes: 5
+track: "investing-fundamentals"
+order: 1
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+</script>
+
+## Your Savings Account Is Quietly Losing
+
+Here's something most people don't realize: keeping your money in a regular savings account is a slow-motion loss.
+
+Not because the bank steals it. Because of **inflation**.
+
+Inflation is the gradual rise in prices over time. The US Federal Reserve targets 2% annual inflation — meaning prices, on average, rise about 2% per year. Your grocery bill. Your rent. Your car insurance. Everything.
+
+Now look at the typical savings account: as of recent years, many traditional bank savings accounts pay 0.01–0.06% APY. Even high-yield savings accounts, which are better, pay around 4–5% (and that rate will fall when interest rates fall).
+
+At 2% inflation and 0.5% savings interest: you're losing ~1.5% of purchasing power per year. Every year. It's invisible — the number in your account grows slightly, but what it can buy shrinks.
+
+**This is the core reason to invest.** Not to get rich quick. Not to time markets. But to stay ahead of inflation and grow wealth over decades.
+
+## The Math of Doing Nothing
+
+Let's make this concrete. You have $10,000 at age 25.
+
+**Scenario A: Leave it in a savings account at 0.5% APY**
+At 65 (40 years later): $10,000 grows to ~$12,200
+But $10,000 in 1984 dollars bought what $30,000 buys today (real inflation). Your purchasing power eroded.
+
+**Scenario B: Invest in a broad market index fund earning 8% annually**
+At 65: $10,000 grows to **$217,245**
+After adjusting for 2% inflation (real return ~6%): still about $103,000 in today's purchasing power.
+
+The difference between doing nothing and investing isn't $200,000. It's the difference between financial security and working until you're 75 because you have no choice.
+
+## But Isn't Investing Risky?
+
+Yes. Stock markets go up and down. In 2008, the S&P 500 fell 38%. In 2020, it dropped 34% in a month. These feel terrifying in the moment.
+
+But here's what the chart shows over 50 years: every crash was followed by a recovery to new highs. Every single one.
+
+The risk of investing over long time horizons (20+ years) is much lower than most people think. The *real* risk — the one that almost never gets mentioned — is **the risk of not investing**. Of spending 40 years accumulating savings that inflation slowly eats while everyone else's retirement accounts 10x.
+
+Short-term: stocks are volatile. Long-term: they're remarkably reliable wealth builders.
+
+## The Three Levers of Wealth Building
+
+Growing wealth requires three ingredients, and you don't need to be rich to use any of them:
+
+**1. Time.** The earlier you start, the more time compound interest has to work. Starting at 22 instead of 32 can literally double your final balance with the same contributions. Time in the market beats timing the market every time.
+
+**2. Consistent contributions.** You don't need to invest a lump sum. $200/month invested at 8% for 30 years grows to about $297,000. The consistency matters more than the amount.
+
+**3. Low fees.** Investment fees compound just like returns — but they compound against you. A fund charging 1% per year vs. 0.05% costs you tens of thousands over decades. This is why index funds (covered in a later lesson) matter so much.
+
+## What About Debt?
+
+If you have high-interest debt (credit cards, personal loans above ~8%), paying that down aggressively is often a better "investment" than buying stocks.
+
+Paying off a 22% APR credit card is a guaranteed 22% return on your money. No stock market investment reliably returns 22%.
+
+The general framework:
+1. Get employer 401(k) match first (that's a 50–100% guaranteed return)
+2. Pay off high-interest debt (above ~7–8% APR)
+3. Build your emergency fund
+4. Then invest aggressively
+
+Once the bad debt is gone and the emergency fund is built, your savings rate becomes the most powerful tool you have.
+
+## Starting Small Is Fine
+
+You don't need $5,000 to start investing. Most major brokerages (Fidelity, Schwab, Vanguard) allow you to open an account with $0 and invest in fractional shares for as little as $1.
+
+The important thing is to *start*. Even $25/month invested at 22 is worth more than $500/month invested at 35. The first step — opening an account and investing anything — is the hardest one. After that, it becomes a habit.
+
+Your future self will thank you for not waiting.
+
+<KeyTakeaways points={[
+  "Inflation (typically 2%/year) silently erodes the purchasing power of cash sitting in savings",
+  "Investing in the market has historically returned ~8–10% annually over long periods",
+  "The risk of not investing (inflation erosion) is often greater than the risk of investing",
+  "Time, consistent contributions, and low fees are the three levers of long-term wealth",
+  "Start with any amount — the most important step is opening an investment account"
+]} />
+
+<QuickQuiz
+  question="At 2% annual inflation, how much will $10,000 today be worth in purchasing power after 20 years?"
+  options={[
+    { text: "About $10,000 — inflation is gradual and small", correct: false },
+    { text: "About $8,000", correct: false },
+    { text: "About $6,730", correct: true },
+    { text: "About $5,000", correct: false }
+  ]}
+  explanation="At 2% annual inflation, purchasing power falls by about 2% per year. After 20 years: $10,000 × (0.98)^20 ≈ $6,730. Your money buys about 33% less than it does today. This is why investing — not just saving — is essential for long-term financial health."
+/>

@@ -1,0 +1,121 @@
+---
+title: "Stocks vs. Bonds"
+description: "The two building blocks of almost every investment portfolio — what they are and how they behave differently."
+estimatedMinutes: 8
+track: "investing-fundamentals"
+order: 3
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+</script>
+
+## The Two Ingredients of Almost Every Portfolio
+
+Open any 401(k), IRA, or investment account and you'll encounter two asset classes over and over: stocks and bonds. Nearly every mutual fund, ETF, and retirement portfolio is built from some combination of the two.
+
+Understanding what they are — not just in abstract terms but in terms of how they actually behave — gives you the foundation to make intelligent decisions about your own investments.
+
+## What Is a Stock?
+
+A stock (also called a **share** or **equity**) is a fractional ownership stake in a company.
+
+When Apple issues stock, it's essentially saying: "We need capital to grow. In exchange, we'll sell you a small ownership stake. You participate in our profits and growth — but also in our losses and declines."
+
+When you buy one share of Apple at $200, you own a tiny fraction of one of the world's most valuable companies. If Apple does well, your share is worth more. If Apple struggles, your share is worth less. If Apple pays a dividend, you receive a proportional cash payment.
+
+**How stocks make money:**
+- **Price appreciation**: the share price goes up, and you sell at a profit
+- **Dividends**: some companies distribute a portion of profits to shareholders quarterly
+
+**The risk:** stock prices are volatile. A single company's stock can fall 50%, 80%, or even 100% (bankruptcy). Even broad market indices like the S&P 500 fell 50% in 2008–2009 and 34% in March 2020.
+
+**The reward:** over long periods, stocks have historically returned about 10% annually (or ~7% after inflation). No other widely available asset class matches that over decades.
+
+## What Is a Bond?
+
+A bond is a loan you make to a company or government. They promise to pay you back with interest.
+
+When you buy a US Treasury bond, you're lending money to the federal government. They pay you a fixed interest rate (the "coupon") over a set term (say, 10 years), and return your principal at the end. Corporate bonds work the same way but with companies instead of governments.
+
+**How bonds make money:**
+- **Interest payments (coupons)**: regular, predictable income
+- **Price appreciation**: bond prices can rise if interest rates fall (inverse relationship)
+
+**The risk:** much lower than stocks in most scenarios. US government bonds are considered essentially risk-free (the government has never defaulted on dollar-denominated debt). Corporate bonds carry more risk, especially "junk bonds" (low-credit-quality companies).
+
+**The reward:** much lower than stocks. Current 10-year Treasury yield is around 4–5%. Corporate bonds return a bit more. You're trading return potential for stability.
+
+## How They Behave Together: The Yin and Yang
+
+Stocks and bonds tend to move in opposite directions — not always, but often enough to make them powerful partners in a portfolio.
+
+When the economy is strong: stocks rise (companies profitable), bonds fall slightly (investors prefer stocks).
+
+When the economy struggles: stocks fall (company earnings drop), bonds often rise (investors flee to safety, driving up bond prices).
+
+This inverse correlation — not perfect, but meaningful — is why mixing stocks and bonds in a portfolio reduces volatility without proportionally reducing returns. This is the mathematical magic of **diversification**.
+
+## The Age-Based Allocation Rule
+
+A common rule of thumb for portfolio allocation: your age in bonds.
+
+- Age 25: 25% bonds, 75% stocks
+- Age 40: 40% bonds, 60% stocks
+- Age 65: 65% bonds, 35% stocks
+
+The logic: when you're young, you have time to recover from stock market crashes. You can afford to take more risk for higher long-term returns. As you approach retirement, you can't afford a 40% crash right before you need the money, so you shift toward stability.
+
+This rule is a starting point, not a law. Many financial advisors now recommend younger investors hold even more stocks (90–100%) given that life expectancy is longer and retirements can last 30+ years.
+
+Modern tools like **target-date funds** automate this — they automatically shift from stocks to bonds as you approach a target retirement year, handling the rebalancing for you.
+
+## Individual Stocks vs. Funds: A Critical Distinction
+
+Buying individual stocks means you own a piece of one company. That company might double. It might also go bankrupt. Picking winning individual stocks consistently enough to beat the market is something very few professional fund managers actually manage to do.
+
+Buying a **stock fund** (like an S&P 500 index fund) means you own tiny pieces of 500+ companies. If one company collapses, it barely affects your portfolio. The diversification is built in.
+
+For most investors — and especially for beginners — diversified funds are far more appropriate than individual stock picking. We cover index funds in detail in the next lesson.
+
+## What About Other Asset Classes?
+
+Beyond stocks and bonds, you'll encounter:
+
+**REITs (Real Estate Investment Trusts)**: companies that own income-producing real estate. Traded like stocks, pay high dividends. A way to invest in real estate without buying property.
+
+**Commodities**: gold, oil, agricultural products. Often used as inflation hedges. Tend to perform differently than stocks and bonds, adding another layer of diversification.
+
+**Cash and money market funds**: safe but with returns barely keeping pace with inflation.
+
+Most long-term investors need primarily stocks (for growth) with some bonds (for stability), supplemented by whatever else fits their situation. The complexity of a portfolio should match its purpose, not impress anyone.
+
+## Putting It Together
+
+For someone in their 20s or 30s building long-term wealth:
+
+- **Primary holding**: broad stock market index funds (US and international)
+- **Stabilizer**: a small bond allocation (10–20%) if market volatility keeps you up at night, or if you might need the money within 5 years
+- **Nothing to prove**: you don't need to own individual stocks, cryptocurrency, or complex instruments to build significant wealth
+
+The boring, simple portfolio consistently outperforms the exciting, complicated one.
+
+<KeyTakeaways points={[
+  "Stocks = ownership in a company — high long-term return potential, high short-term volatility",
+  "Bonds = loans to governments or companies — lower returns, lower risk, predictable income",
+  "Stocks and bonds often move in opposite directions, making them powerful portfolio partners",
+  "A common rule: hold your age as a percentage in bonds (adjust based on your risk tolerance)",
+  "Diversified funds beat individual stock picking for most investors most of the time"
+]} />
+
+<QuickQuiz
+  question="When interest rates rise, what typically happens to existing bond prices?"
+  options={[
+    { text: "Bond prices rise too", correct: false },
+    { text: "Bond prices fall", correct: true },
+    { text: "Bond prices are unaffected", correct: false },
+    { text: "Bond prices rise initially then fall", correct: false }
+  ]}
+  explanation="Bonds and interest rates have an inverse relationship. When rates rise, newly issued bonds pay more interest, making existing bonds (with lower rates) less attractive — so their market price falls. When rates fall, existing bonds with higher rates become more valuable and their prices rise. This is why long-term bonds are more sensitive to rate changes than short-term bonds."
+/>

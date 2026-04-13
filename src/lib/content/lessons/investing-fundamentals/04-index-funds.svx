@@ -1,0 +1,155 @@
+---
+title: "Why Index Funds Win"
+description: "The investment strategy that beats most professional fund managers — and costs almost nothing."
+estimatedMinutes: 9
+track: "investing-fundamentals"
+order: 4
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import CompoundInterestCalc from '$lib/components/calculators/CompoundInterestCalc.svelte';
+</script>
+
+## The Strategy That Embarrasses Wall Street
+
+In 1975, John Bogle founded Vanguard and launched the world's first index fund available to regular investors. The idea was scandalously simple: instead of paying smart people to pick winning stocks, just buy all the stocks in the market and match the market's return.
+
+Wall Street laughed. Why would anyone accept average returns when they could pay for expert stock-picking?
+
+Fifty years later, the joke is on Wall Street. Index funds now manage over $10 trillion in assets, and study after study confirms the same finding: most actively managed funds underperform simple index funds over long periods, after fees.
+
+## What Is an Index Fund?
+
+An **index** is a list of securities that represents a market or a portion of it. The **S&P 500** is an index of the 500 largest US companies. The **Total Stock Market index** covers essentially every US public company. The **MSCI World index** covers large companies across 23 developed countries.
+
+An **index fund** is a fund that simply holds the same securities in the same proportions as an index — no stock picking, no analysts, no guessing. When a company enters the index, the fund buys it. When one leaves, the fund sells it.
+
+Because there's no active management, the costs are tiny.
+
+## The Expense Ratio: The One Number That Matters Most
+
+When comparing funds, the **expense ratio** is the annual fee charged as a percentage of your investment. It's deducted automatically — you never see a bill, but you feel it over time.
+
+- Average actively managed fund: **0.5–1.5% per year**
+- Typical index fund: **0.03–0.20% per year**
+- Fidelity ZERO Total Market Fund: **0.00% per year**
+
+That sounds like a small difference. Here's what it means over 30 years:
+
+**$10,000 invested at 8% annual growth:**
+- With 1% annual fee: grows to **$96,000**
+- With 0.05% annual fee: grows to **$152,000**
+
+The fee difference is only 0.95% annually. The outcome difference is **$56,000** — because fees compound against you the same way returns compound for you.
+
+<TryItYourself title="See How Fees Erode Returns">
+  <CompoundInterestCalc initialPrincipal={10000} initialMonthlyContrib={0} initialRate={8} initialYears={30} />
+</TryItYourself>
+
+## Why Active Managers Can't Consistently Beat the Market
+
+This is the uncomfortable truth for the finance industry: most professionals can't reliably beat an index fund.
+
+Every year, S&P Dow Jones publishes the **SPIVA** report comparing active fund performance to relevant indices. The numbers are consistent:
+
+- Over 1 year: about 50% of active funds beat their benchmark (coin flip)
+- Over 5 years: about 25% beat their benchmark
+- Over 15 years: about 10% beat their benchmark
+
+And identifying which active funds will outperform in advance is nearly impossible — last year's winners are no more likely to win this year.
+
+Why can't professionals beat the market? Because:
+1. Markets are efficient — information spreads fast, and prices reflect most known facts
+2. Active funds pay for research teams, analysts, and trades — costs eat returns
+3. Everyone is competing against everyone else; the average active manager *is* the market
+
+When you buy an index fund, you're betting that the collective knowledge and efforts of all market participants are reflected in prices — and you're capturing the return of that system rather than trying to beat it.
+
+## The Tax Efficiency Bonus
+
+Index funds are also more tax-efficient than active funds.
+
+Active funds frequently buy and sell securities as managers react to news, generating **capital gains distributions** that you owe taxes on even if you didn't sell any fund shares. Index funds trade infrequently — only when indices rebalance, which is rare. Fewer trades means fewer taxable events.
+
+This is especially valuable in taxable brokerage accounts (as opposed to tax-sheltered accounts like IRAs).
+
+## The Three-Fund Portfolio
+
+Many sophisticated investors use a startlingly simple portfolio: just three index funds.
+
+1. **US Total Stock Market index fund** (e.g., VTI, FSKAX) — ~60% allocation
+2. **International Total Stock Market index fund** (e.g., VXUS, FTIHX) — ~20% allocation
+3. **US Bond Market index fund** (e.g., BND, FXNAX) — ~20% allocation
+
+That's it. This portfolio is diversified across thousands of stocks across dozens of countries, with a stable bond component. It requires almost no management — just periodic rebalancing (annually or when allocations drift far from target).
+
+Adjust the ratios to match your risk tolerance and time horizon. A 25-year-old might do 80% stocks (split between US and international) and 20% bonds. A 55-year-old approaching retirement might want 50/50.
+
+## Which Funds Specifically?
+
+These are consistently recommended low-cost options (always verify current expense ratios before investing):
+
+**US Total Market:**
+- Vanguard VTI (ETF) — 0.03%
+- Fidelity FSKAX — 0.015%
+- Schwab SWTSX — 0.03%
+
+**International:**
+- Vanguard VXUS — 0.07%
+- Fidelity FTIHX — 0.06%
+
+**Bonds:**
+- Vanguard BND — 0.03%
+- Fidelity FXNAX — 0.025%
+
+**All-in-one target date funds** (automatically adjust stock/bond ratio as you age):
+- Vanguard Target Retirement series
+- Fidelity Freedom Index series
+- Schwab Target Date series
+
+These are all free to own at major brokerages. No commissions, no minimums at most platforms.
+
+## Where to Hold Index Funds
+
+**Tax-advantaged accounts first:**
+- **401(k) / 403(b)**: Employer-sponsored. Contributions reduce taxable income. Get the full employer match first — that's a 50–100% instant return.
+- **Roth IRA**: Contributes with after-tax dollars, withdrawals in retirement are tax-free. Contribution limit: $7,000/year (2024). Excellent for people who expect to be in a higher tax bracket in retirement.
+- **Traditional IRA**: Like a 401(k) — deductible contributions, taxed on withdrawal.
+
+**Taxable brokerage account**: No annual contribution limit, no withdrawal restrictions. More flexible but no tax advantages. Great for investing beyond retirement account limits.
+
+The order: 401(k) to get employer match → max Roth IRA → max 401(k) → taxable brokerage.
+
+## The Behavior Gap: Your Biggest Enemy
+
+Here's the thing nobody wants to say: index funds only work if you hold them through the crashes.
+
+During COVID in March 2020, the S&P 500 fell 34% in 5 weeks. Hundreds of thousands of investors sold their index funds at the bottom, locking in massive losses. Those who held (or bought more) recovered within months and went on to new highs.
+
+The biggest risk in investing isn't the market. It's your own behavior. The easiest investment decision — doing nothing when everything is crashing — is often psychologically the hardest.
+
+Set up automatic contributions. Don't check your portfolio daily. Build an asset allocation you can live with through down markets. And when the market crashes, remind yourself: crashes are sales for long-term investors.
+
+Your goal is to be boring. Boring wins.
+
+<KeyTakeaways points={[
+  "Index funds track a market index by owning all its stocks — no stock picking required",
+  "The expense ratio is the key metric: aim for under 0.2%, look for under 0.1%",
+  "Most active fund managers underperform index funds after fees over 10+ years",
+  "The three-fund portfolio (US stocks, international stocks, bonds) covers most investment needs",
+  "The biggest risk isn't market crashes — it's selling during crashes; automation beats willpower"
+]} />
+
+<QuickQuiz
+  question="$10,000 invested for 30 years at 8% return with a 1% annual fee vs. 0.05% fee. Approximately how much more do you end up with using the lower-fee fund?"
+  options={[
+    { text: "About $2,850 (0.95% × $10,000 × 30 years)", correct: false },
+    { text: "About $15,000", correct: false },
+    { text: "About $56,000", correct: true },
+    { text: "The difference is minimal since fees are percentage-based", correct: false }
+  ]}
+  explanation="Fees compound against you just like returns compound for you. At 8% growth with 1% fee (net 7%), $10,000 grows to ~$76,000. At 8% with 0.05% fee (net 7.95%), it grows to ~$103,000. The difference is ~$27,000 — and if you're also making monthly contributions, the gap is even wider. Never underestimate compounding expense ratios."
+/>

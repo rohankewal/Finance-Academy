@@ -1,0 +1,96 @@
+---
+title: "Budgeting Basics"
+description: "Build a budget that actually works for your life — not a spreadsheet you abandon after two weeks."
+estimatedMinutes: 7
+track: "money-basics"
+order: 2
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import BudgetBuilderCalc from '$lib/components/calculators/BudgetBuilderCalc.svelte';
+</script>
+
+## The Reason Most Budgets Fail
+
+Most people try to budget by listing every expense category and assigning exact dollar limits. Then life happens — an unexpected dinner, a sale at a store, a streaming service they forgot they had — and the budget falls apart. They feel like they failed and stop trying.
+
+The problem isn't willpower. The problem is that most budgets are too rigid and too complicated.
+
+A good budget does three things: tells you where your money *is* going, shows you where you *want* it to go, and creates a gap between the two that you can act on. It doesn't need to be perfect.
+
+## The 50/30/20 Rule
+
+One of the simplest and most effective budget frameworks is the **50/30/20 rule**:
+
+- **50% on Needs** — housing, food, utilities, transportation, insurance, minimum debt payments
+- **30% on Wants** — restaurants, entertainment, subscriptions, hobbies, clothes beyond the basics
+- **20% on Savings** — emergency fund, retirement accounts, investing, extra debt payments
+
+This is based on *after-tax income* — the money that actually hits your bank account.
+
+Let's run the numbers on a $4,000/month take-home salary:
+- Needs: $2,000/month
+- Wants: $1,200/month
+- Savings: $800/month
+
+Is 50/30/20 perfect for everyone? No. If you live in a high cost-of-living city, your needs might eat up 60% of your income. That's okay — the framework gives you a starting point to work from, not a law to obey.
+
+<TryItYourself title="Build Your Budget">
+  <BudgetBuilderCalc />
+</TryItYourself>
+
+## Step 1: Know What You Actually Spend
+
+Before you can build a useful budget, you need to know your baseline. Pull up your bank and credit card statements for the last three months and categorize every transaction.
+
+Most people are shocked by what they find. Not because they're spending irresponsibly — but because spending in small amounts is nearly invisible until you add it up. Four streaming services × $15 = $60/month. Two coffee shop visits a week × $6 = $52/month. These aren't bad decisions, but they're decisions you might want to make consciously.
+
+You don't need a fancy app for this. A quick scan of statements is enough to get the picture.
+
+## Step 2: Set Flexible Targets, Not Hard Limits
+
+Instead of "I'm only allowed $200 on dining," try "I'm targeting $200 on dining." The word *target* creates room for life without abandon.
+
+Some people find it helpful to use the **envelope method** — allocating cash to physical or digital "envelopes" for each category. When the envelope is empty, that category is done for the month. Apps like YNAB or a simple spreadsheet can simulate this digitally.
+
+## Step 3: Pay Yourself First
+
+The single most reliable budgeting habit is automating savings before you can spend the money.
+
+Set up automatic transfers on payday to your savings account, 401(k), or investment account. Even $50/month adds up. The key: you never see the money, so you don't miss it. Humans are wired to spend what's available — automation works around this instinct.
+
+If your employer offers 401(k) matching, automate enough to get the full match. That's a guaranteed 50–100% return on your contribution — the best investment available to most people.
+
+## Step 4: Review Monthly, Adjust Quarterly
+
+Check in with your budget at least once a month — not to grade yourself, but to learn. Did you overspend in dining? Why? Is that aligned with what you actually value? If so, maybe the budget needs adjusting, not your behavior.
+
+Every few months, recalibrate your targets based on what's actually happening in your life. A new job, a move, a relationship change — all of these shift what a good budget looks like.
+
+## The Real Point of a Budget
+
+A budget isn't about restriction. It's about intention. You work hard for your money — a budget makes sure your money is working hard for you, in ways that align with what you actually care about.
+
+The people who are best with money aren't the ones who deprive themselves of everything. They're the ones who spend freely on what they love and cut ruthlessly on what they don't.
+
+<KeyTakeaways points={[
+  "The 50/30/20 rule: 50% needs, 30% wants, 20% savings — applied to after-tax income",
+  "Track 3 months of actual spending before setting budget targets",
+  "Set flexible targets, not rigid limits — the goal is awareness, not punishment",
+  "Automate savings on payday so you spend what's left, not save what's left",
+  "Review monthly, adjust quarterly — budgets should reflect real life"
+]} />
+
+<QuickQuiz
+  question="In the 50/30/20 rule, which category do minimum debt payments fall under?"
+  options={[
+    { text: "Wants (30%)", correct: false },
+    { text: "Needs (50%)", correct: true },
+    { text: "Savings (20%)", correct: false },
+    { text: "It depends on the debt type", correct: false }
+  ]}
+  explanation="Minimum debt payments are considered a 'Need' in the 50/30/20 framework because they're non-negotiable obligations. However, any extra debt payments beyond the minimum would fall under the Savings/Investing category (20%)."
+/>

@@ -1,0 +1,102 @@
+---
+title: "Good Debt vs. Bad Debt"
+description: "Not all debt is equal. Learn which borrowing can build wealth and which drains it."
+estimatedMinutes: 6
+track: "debt-101"
+order: 1
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+</script>
+
+## Debt Has a PR Problem
+
+Mention debt and most people immediately feel bad. "Debt is bad." "You should never borrow money." These feel like financial virtues — but they're actually oversimplifications that can lead to poor decisions.
+
+The reality is more nuanced: debt is a tool. Like any tool, it can build something valuable or cause serious damage — depending entirely on how you use it.
+
+The distinction that matters isn't whether you borrowed money. It's what the debt is *doing* for you.
+
+## What Makes Debt "Good"
+
+Good debt has two characteristics:
+
+1. **It finances something that grows in value or generates income** — potentially worth more than the interest you pay
+2. **The interest rate is low enough** that the cost of borrowing makes sense given what you're getting
+
+Classic examples:
+
+**Mortgage on a home.** Real estate historically appreciates. If you buy a house for $300,000 and it's worth $450,000 fifteen years later, the debt helped you build equity and wealth. The mortgage also comes with a tax deduction in many cases, and the alternative — renting — builds someone else's equity instead of yours.
+
+**Student loan for a high-ROI degree.** A $40,000 loan at 5% interest to become a software engineer who earns $95,000/year is very different math from a $60,000 loan at 7% for a degree with limited earning potential. Student loans are often called good debt — but they require honest assessment of the earning outcome.
+
+**Small business loan.** Borrowing money to start or grow a business that generates more profit than the loan costs is textbook good debt. The borrowed capital produces returns greater than its interest.
+
+**Federal student loans (subsidized).** At low fixed interest rates with income-driven repayment options and forgiveness pathways, federal student loans are among the most borrower-friendly debt products that exist.
+
+## What Makes Debt "Bad"
+
+Bad debt typically has one or more of these characteristics:
+
+- **High interest rate** — often 15–30% APR, meaning your money is compounding against you
+- **Finances depreciating assets** — things that lose value immediately
+- **Consumed rather than invested** — spent on experiences or items rather than assets
+
+Classic examples:
+
+**Credit card balances.** Average APR is around 22%. If you carry a $2,000 balance and only make minimum payments, you could pay $1,000+ in interest before it's cleared. The original purchase is long forgotten, but the interest charges keep compounding.
+
+**Payday loans.** These short-term loans often carry equivalent APRs of 300–400%. They target people in financial distress and frequently trap them in a cycle of rollovers. They are almost never a good option.
+
+**Auto loan for a depreciating vehicle.** A car loan at 8% on a car that loses 20% of its value the moment you drive it off the lot is borrowing at a net loss. This isn't to say you should never finance a car — sometimes you need reliable transportation — but financing more car than you can comfortably afford is a reliable wealth drain.
+
+**Buy-now-pay-later for discretionary spending.** BNPL services like Afterpay or Klarna have exploded in popularity. When used interest-free and paid on time, they're neutral. When you miss a payment or use them to buy things you otherwise couldn't afford, they become high-cost revolving debt.
+
+## The Gray Zone
+
+Some debt doesn't fit neatly into either category:
+
+**Medical debt.** Unavoidable and often catastrophic — not really a "choice" in the traditional sense. It's worth negotiating aggressively (hospitals frequently reduce bills) and understanding your options before letting it go to collections.
+
+**Car loans at low rates.** A 3–4% auto loan isn't great, but it's not a catastrophe either. The question is whether the total cost of ownership (loan payments + insurance + maintenance + depreciation) fits your budget without crowding out savings.
+
+**Personal loans for debt consolidation.** Taking a personal loan at 10% to pay off credit cards at 22% is smart — you're replacing bad debt with less-bad debt. Just don't run the credit cards back up afterward.
+
+## The True Cost of Bad Debt
+
+Here's the calculation that should make high-interest debt feel urgent: the opportunity cost.
+
+Every dollar you're paying in interest on a 22% APR credit card is a dollar that *could* be compounding at 8–10% in the market. The real cost of carrying $5,000 in credit card debt for 5 years isn't just the ~$2,500 in interest you'll pay — it's also the ~$3,100 that money *could have grown to* if invested instead.
+
+High-interest debt is the single most powerful force working against your financial future. Paying it off is the highest guaranteed return available to most people.
+
+## The Decision Framework
+
+When considering new debt, ask:
+1. **What is the APR?** Below 5–6% and it might be fine to carry. Above 10%, be very cautious.
+2. **Does this purchase/investment generate value or income?** If yes, the math might work. If it's purely consumption, be honest about that.
+3. **Can I comfortably make the payments while still saving?** If this loan crowds out saving, it's probably a bad deal.
+4. **Do I need this now, or can I save up?** Sometimes waiting and paying cash is the better path.
+
+Not all debt is avoidable — but all debt deserves scrutiny.
+
+<KeyTakeaways points={[
+  "Good debt finances assets that appreciate or generate income at a low interest rate",
+  "Bad debt carries high interest rates and finances things that lose value",
+  "The average credit card APR is around 22% — carrying a balance is extremely expensive",
+  "Opportunity cost matters: every dollar in interest is a dollar not compounding in investments",
+  "Always evaluate debt by its APR, what you're buying, and whether payments crowd out savings"
+]} />
+
+<QuickQuiz
+  question="You're deciding between two options: (A) invest $200/month at 8%, or (B) use it to pay off a credit card at 22% APR. Which gives you the better return?"
+  options={[
+    { text: "Option A — investing at 8% compounds over time", correct: false },
+    { text: "Option B — paying off 22% debt is a guaranteed 22% return", correct: true },
+    { text: "They're equal — debt payoff and investing are different things", correct: false },
+    { text: "It depends on your tax situation", correct: false }
+  ]}
+  explanation="Paying off a 22% APR debt is a guaranteed 22% return on that money — because you're avoiding 22% interest charges. No investment reliably returns 22%, so paying off high-interest debt first almost always wins mathematically."
+/>

@@ -1,0 +1,79 @@
+---
+title: "What Is Money, Really?"
+description: "Understand what money is, where it comes from, and why it has value — beyond just 'the government says so.'"
+estimatedMinutes: 5
+track: "money-basics"
+order: 1
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+</script>
+
+## Money Isn't What You Think It Is
+
+Ask most people what money is and they'll say "paper with presidents on it" or maybe "numbers in a bank account." But that's describing what money *looks like*, not what it *is*.
+
+Money is a shared agreement. Nothing more, nothing less. A dollar bill is worthless paper — unless everyone in a society agrees to treat it as valuable. The moment that agreement breaks down (as it did in Weimar Germany in 1923, or Zimbabwe in 2008), money becomes wallpaper.
+
+This isn't just a philosophy lesson. Understanding what money actually is changes how you think about earning it, saving it, and using it.
+
+## Three Things Money Does
+
+Economists define money by its three functions:
+
+**1. Medium of exchange.** Before money, people bartered — trading a chicken for a bag of wheat. The problem: what if you have chickens but want shoes, and the cobbler doesn't want your chickens? Money solves this by being something *everyone* will accept.
+
+**2. Unit of account.** How do you compare the value of a concert ticket to a week of groceries? Money gives us a common measuring stick. Without it, pricing anything becomes impossibly complicated.
+
+**3. Store of value.** Money lets you save work you did today to spend later. You can't save your labor directly, but you can convert it into money and keep it until you need it.
+
+## Why Does Money Have Value?
+
+There are two main types of money in history:
+
+**Commodity money** has intrinsic value — gold, silver, seashells, salt. These were used as money because they were useful or rare. The problem: you can't easily split a gold bar to buy a coffee.
+
+**Fiat money** has no intrinsic value. The US dollar, the euro, the yen — these are worth something because governments declare them legal tender and, more importantly, because millions of people *act* like they're worth something. "Fiat" comes from the Latin word for "let it be done."
+
+So what keeps fiat money from becoming worthless? A few things: a functioning government, a stable economy, trust in financial institutions, and the fact that taxes must be paid in that currency. None of these are guaranteed — but in a stable country, they're usually reliable.
+
+## Modern Money: Most of It Is Digital
+
+Here's a fact that surprises most people: about 90% of money in the US economy doesn't exist as physical bills or coins. It exists as numbers in computer systems. When your employer pays you, no truck drives cash to your bank. It's an adjustment in a ledger.
+
+Banks have the legal ability to *create* money through lending — a process called fractional reserve banking. When your bank loans someone $10,000, it doesn't physically remove that money from a vault. It creates a new deposit entry. This is how the money supply expands.
+
+The Federal Reserve (the US central bank) manages how much money exists in the economy by setting interest rates and controlling how much banks can lend. Too little money and the economy stalls; too much and inflation erodes your purchasing power.
+
+## Why This Matters for You
+
+Understanding money as a social agreement — not a fixed, eternal thing — helps you make better decisions:
+
+- **Inflation is real.** Your cash is slowly losing purchasing power every year. $100 today will buy roughly $74 worth of stuff in 10 years at 3% inflation. This is why leaving all your savings in a low-interest account is quietly losing ground.
+
+- **The goal isn't to hoard money.** Money's value comes from what it can do — provide security, buy time, enable experiences, fund goals. It's a tool, not a scoreboard.
+
+- **Income ≠ wealth.** A doctor earning $300,000 and spending $310,000 is poorer in the long run than a teacher earning $60,000 and investing $1,000 a month. Wealth is the gap between what you earn and what you spend — accumulated over time.
+
+You don't need a finance degree to understand money. You just need to recognize what it is, how it works, and how to use it intentionally.
+
+<KeyTakeaways points={[
+  "Money is a shared social agreement, not an inherent store of value",
+  "Money serves three functions: medium of exchange, unit of account, store of value",
+  "About 90% of money is digital, not physical cash",
+  "Inflation silently erodes the value of cash sitting idle",
+  "Wealth is the difference between what you earn and what you spend, compounded over time"
+]} />
+
+<QuickQuiz
+  question="Which of the following is NOT one of the three functions of money?"
+  options={[
+    { text: "Medium of exchange", correct: false },
+    { text: "Store of value", correct: false },
+    { text: "Source of happiness", correct: true },
+    { text: "Unit of account", correct: false }
+  ]}
+  explanation="Money's three functions are: medium of exchange (enables transactions), unit of account (measures value), and store of value (saves work for later). 'Source of happiness' is not one of them — research shows the relationship between money and happiness is more complicated than a simple equation."
+/>

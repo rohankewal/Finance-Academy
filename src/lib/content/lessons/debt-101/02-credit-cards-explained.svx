@@ -1,0 +1,114 @@
+---
+title: "How Credit Cards Actually Work"
+description: "Grace periods, interest calculations, minimum payments — understand the mechanics before they cost you."
+estimatedMinutes: 8
+track: "debt-101"
+order: 2
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import CreditCardTrapCalc from '$lib/components/calculators/CreditCardTrapCalc.svelte';
+</script>
+
+## The Most Misunderstood Financial Product
+
+Credit cards are simultaneously one of the best and worst financial tools available. Used correctly, they offer free short-term financing, valuable rewards, fraud protection, and a powerful way to build credit. Used carelessly, they're a high-interest debt trap that can take years to escape.
+
+The difference is understanding exactly how they work — which most people don't, because credit card companies don't make it easy to understand.
+
+## The Statement Cycle
+
+Your credit card operates on a billing cycle — usually about 30 days. At the end of each cycle, your statement is generated showing all transactions and your total balance.
+
+You then have a **grace period** — typically 21 to 25 days from the statement date — to pay before interest kicks in. Here's the critical part: **if you pay your full statement balance before the due date, you pay zero interest.** Every purchase during that cycle was essentially an interest-free loan.
+
+This is why treating a credit card like a debit card — spending only what you can pay in full — makes it entirely free to use. You get rewards, fraud protection, and credit-building with no cost.
+
+The trap springs when you don't pay in full and carry a **balance**.
+
+## How Interest Is Actually Calculated
+
+Here's where it gets ugly. Credit card interest is charged as a **Daily Periodic Rate (DPR)**, not a simple monthly fee.
+
+Your APR divided by 365 gives you the daily rate. A 22% APR = 0.0603% per day.
+
+Interest is then calculated on your **average daily balance** — the balance you carried each day of the billing cycle, averaged together. This means even if you make a payment mid-cycle, you're still being charged interest on the days you carried the full balance.
+
+**The no-grace-period trap.** Once you carry a balance from one month to the next, you lose your grace period entirely. New purchases start accruing interest immediately — even if you pay them within 30 days. You're only fully protected if you're paying in full every single month.
+
+## The Minimum Payment Con
+
+Credit card statements show a minimum payment — usually 1–2% of the balance, or about $25–$35, whichever is higher. This number is carefully designed to keep you in debt as long as possible.
+
+Let's trace what happens:
+
+You have a $3,500 balance at 24.99% APR. Monthly interest: about $73.
+
+If you pay only the minimum (~$88/month), roughly $73 goes to interest and only $15 reduces your actual balance. You're on a treadmill that barely moves. At this rate, it would take over 20 years and cost about $4,500 in interest to pay off $3,500 you borrowed.
+
+<TryItYourself title="See the Cost of Minimum Payments">
+  <CreditCardTrapCalc />
+</TryItYourself>
+
+## Cash Advances: The Worst Feature
+
+Almost no one should use credit card cash advances. When you use your credit card to withdraw cash:
+
+- You're charged a cash advance fee (typically 3–5% of the amount)
+- The APR for cash advances is often higher than your regular purchase rate (27–30%+)
+- **There is no grace period.** Interest starts accruing immediately, from day one.
+
+A $500 cash advance at 28% APR costs about $11.50 in interest per month even if you pay it back within 30 days. That's before the $15–25 upfront fee.
+
+## Balance Transfers
+
+A balance transfer moves debt from a high-APR card to a new card offering a 0% intro APR for 12–21 months. This can save significant interest — but the trap is the fine print:
+
+- There's usually a balance transfer fee of 3–5% of the transferred amount
+- The 0% rate is temporary. After the promo period, remaining balances jump to the regular APR (often 20%+)
+- If you make a late payment during the promo period, some cards immediately end the promotional rate
+- Many people transfer the balance, then run up the original card again — doubling their debt
+
+Balance transfers work if you have a concrete payoff plan and the discipline to execute it.
+
+## Rewards Cards: Worth It?
+
+Cash back and travel rewards cards can genuinely add value — but only if you're paying in full every month. Here's why: a 2% cash back card gives you 2 cents per dollar. A 22% APR costs you 22 cents of interest for every dollar you carry. The math doesn't work.
+
+The most common mistake: spending more because of rewards points. If a 2% cash back card is causing you to spend $200 more per month to "earn" $4 in rewards, you've lost $196. Rewards are a bonus, not a reason to spend.
+
+The best rewards cards for most people: a simple flat-rate 1.5–2% cash back card on everything, or a travel card if you actually travel. No annual fee, no complicated points math.
+
+## How to Use Credit Cards Correctly
+
+The simple rules that keep credit cards beneficial:
+
+1. **Spend only what you can pay in full at the end of the month.** If you can't afford it in cash, you can't afford it.
+2. **Autopay the statement balance in full.** Not the minimum — the full balance. Set it and forget it.
+3. **Use one primary card for most purchases.** Simpler to track, better for your utilization ratio.
+4. **Never use a credit card for cash advances.** Not worth it in almost any situation.
+5. **Check your statement for unauthorized charges.** Fraud protection only works if you catch it.
+
+A credit card is one of the best ways to build credit and earn free rewards — as long as the bank is never collecting interest from you.
+
+<KeyTakeaways points={[
+  "Pay your full statement balance each month — if you do, you pay zero interest",
+  "Carrying any balance eliminates your grace period on new purchases too",
+  "Minimum payments are designed to maximize the interest you pay, not help you",
+  "Cash advances charge immediate interest and higher rates — avoid them",
+  "Rewards only make sense if you're never carrying a balance"
+]} />
+
+<QuickQuiz
+  question="You have a $2,000 credit card balance at 20% APR. You pay $50/month. Roughly how long will it take to pay off?"
+  options={[
+    { text: "About 3 years", correct: false },
+    { text: "About 5 years", correct: false },
+    { text: "About 7 years or more", correct: true },
+    { text: "About 10 months", correct: false }
+  ]}
+  explanation="At 20% APR, $2,000 generates about $33 in interest per month. Paying $50/month, only $17 goes to principal — at that rate it takes over 7 years and costs nearly $2,500 in interest. This is why aggressive paydown of high-APR balances is so important."
+/>

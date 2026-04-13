@@ -1,0 +1,150 @@
+---
+title: "Student Loans Demystified"
+description: "Federal vs. private, income-driven repayment, forgiveness programs — a clear map through the maze."
+estimatedMinutes: 10
+track: "debt-101"
+order: 3
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import DebtPayoffCalc from '$lib/components/calculators/DebtPayoffCalc.svelte';
+</script>
+
+## The $1.7 Trillion Problem (and How to Navigate It)
+
+Americans collectively owe over $1.7 trillion in student loan debt. Millions of people are making payments on loans they don't fully understand — and that lack of understanding costs them.
+
+But student loans don't have to be a life sentence. They have more built-in protections, flexibility, and forgiveness pathways than almost any other type of debt. The key is knowing what you're dealing with.
+
+## Federal vs. Private Loans: This Distinction Matters Enormously
+
+Everything changes depending on whether your loan is **federal** (from the US government) or **private** (from a bank or lender like Sallie Mae).
+
+### Federal Loans
+
+Federal student loans come with a set of borrower protections that don't exist anywhere else in the lending world:
+
+- **Fixed interest rates** set by Congress — currently 5.50–8.05% for undergrad/grad depending on type
+- **Income-Driven Repayment (IDR) plans** — cap monthly payments at 5–10% of discretionary income
+- **Deferment and forbearance** options if you lose your job or face hardship
+- **Public Service Loan Forgiveness (PSLF)** — remaining balance forgiven after 10 years of payments if you work for a qualifying government or nonprofit employer
+- **IDR forgiveness** — remaining balance forgiven after 20–25 years on IDR plans
+
+Types of federal loans: Direct Subsidized (interest doesn't accrue while in school), Direct Unsubsidized (interest accrues always), and PLUS loans (for parents or grad students).
+
+### Private Loans
+
+Private loans are issued by banks and have none of the above protections by default. They typically:
+
+- Carry variable or fixed rates determined by your credit score (and your cosigner's)
+- Offer no income-driven repayment plans
+- Have limited or no forgiveness options
+- May require full repayment even during financial hardship
+
+**The rule:** exhaust all federal loan options before taking private loans. Private loans should be a last resort.
+
+## Repayment Plans: You Have Options
+
+Many borrowers don't realize they have choices beyond the standard 10-year repayment plan.
+
+### Standard Repayment
+10 years, fixed monthly payments. Pays the least interest overall. If your payments are manageable, this is the best option financially.
+
+### Income-Driven Repayment (IDR) Plans
+Your payment is capped at a percentage of your **discretionary income** — the difference between your income and 225% of the federal poverty line. Four main IDR plans exist; the newest is SAVE (formerly REPAYE):
+
+- **SAVE Plan**: Payments as low as 5% of discretionary income for undergrad loans; 10% for grad loans. Interest subsidy: if your payment doesn't cover all the interest, the government covers the rest, preventing balance growth.
+- After 20–25 years of payments, any remaining balance is forgiven (potentially taxable as income, depending on the year).
+
+IDR is ideal when: your income is low relative to your debt, you're pursuing PSLF, or you need lower monthly payments now.
+
+The tradeoff: you'll pay more in total interest over time because you're paying less per month. Run the actual numbers before committing.
+
+### Graduated Repayment
+Payments start low and increase every 2 years. Good if you expect your income to rise significantly. Still pays off in 10 years.
+
+### Extended Repayment
+Stretches repayment to 25 years. Lowers monthly payments but significantly increases total interest paid.
+
+## Public Service Loan Forgiveness (PSLF)
+
+If you work full-time for a qualifying employer — federal, state, or local government, or a 501(c)(3) nonprofit — you can have your remaining federal loan balance forgiven after **120 qualifying payments** (10 years).
+
+This is one of the most valuable programs that exists for borrowers, and it's dramatically underutilized because people don't know about it or don't think they qualify.
+
+Qualifying employers include: teachers at public schools, hospital workers at nonprofit hospitals, government employees at any level, most nonprofit employees, military service members, and more.
+
+Steps to pursue PSLF:
+1. Make sure your loans are Direct Loans (or consolidate into them)
+2. Enroll in an IDR plan
+3. Submit an Employment Certification Form annually to document progress
+4. After 120 payments, apply for forgiveness
+
+Forgiven amounts under PSLF are currently **tax-free**.
+
+## The Interest Trap: Don't Let Your Balance Grow
+
+On unsubsidized loans, interest accrues from the moment the loan is disbursed — even while you're in school. A $25,000 loan at 6% will have grown to about $28,000 by the time you graduate if you didn't make interest payments.
+
+Strategies to prevent interest capitalization:
+- Pay loan interest while in school if you can, even $30–$50/month
+- Avoid extended grace periods that let interest pile up
+- If on an IDR plan, use the SAVE plan's interest subsidy to prevent negative amortization
+
+## How to Prioritize: Federal Loans vs. Other Debt
+
+A common question: should you pay down student loans aggressively or invest?
+
+The answer depends on your interest rate:
+
+- **Below 5% APR**: Consider investing the extra money instead. Your expected investment returns may exceed the cost of the debt.
+- **5–7% APR**: Toss-up. Split the difference or pay down loans for the psychological benefit.
+- **Above 7% APR**: Pay down aggressively. The guaranteed return on debt payoff exceeds expected market returns.
+
+For federal loans with IDR and forgiveness potential, the calculus changes entirely — the "payoff" math looks different when forgiveness is possible.
+
+<TryItYourself title="Model Your Repayment Plan">
+  <DebtPayoffCalc />
+</TryItYourself>
+
+## Refinancing: When It Makes Sense (and When It Doesn't)
+
+Refinancing replaces your existing loans with a new private loan at (ideally) a lower interest rate. This can save money — but it comes with a massive caveat.
+
+**When you refinance federal loans, they become private.** You permanently lose:
+- IDR eligibility
+- PSLF eligibility
+- Deferment/forbearance protections
+- All forgiveness pathways
+
+Refinancing only makes sense if: you have private loans (nothing to lose), you have high-interest federal loans with no intention of pursuing forgiveness, you have a strong credit score qualifying you for a significantly lower rate, and your job situation is stable.
+
+Don't refinance federal loans if you're pursuing PSLF, planning to use IDR, have an unstable income, or might need deferment.
+
+## One Actionable Step Today
+
+Log into StudentAid.gov and review your federal loan balance, servicer, and current repayment plan. Many borrowers don't know what plan they're on or haven't re-enrolled after the COVID pause.
+
+If you're unsure whether IDR or standard repayment is better for your situation, a nonprofit credit counselor can run the numbers for free.
+
+<KeyTakeaways points={[
+  "Federal loans offer income-driven repayment, forgiveness, and deferment — exhaust them before taking private loans",
+  "PSLF forgives remaining balance after 10 years of payments for government/nonprofit workers — tax-free",
+  "IDR plans cap payments at 5–10% of discretionary income; balance forgiven after 20–25 years",
+  "Refinancing federal loans converts them to private and permanently eliminates all federal protections",
+  "Log into StudentAid.gov to understand exactly what you owe and what plan you're on"
+]} />
+
+<QuickQuiz
+  question="Which of the following is a key difference between federal and private student loans?"
+  options={[
+    { text: "Federal loans always have lower interest rates", correct: false },
+    { text: "Federal loans offer income-driven repayment plans; private loans typically do not", correct: true },
+    { text: "Private loans offer more forgiveness options", correct: false },
+    { text: "Federal loans require a credit check; private loans do not", correct: false }
+  ]}
+  explanation="The defining advantage of federal student loans is the income-driven repayment plans (IDR) and forgiveness pathways. Private loans offer neither. Federal loans also don't require a credit check for most types. While federal rates are often competitive, private lenders can sometimes offer lower rates to borrowers with excellent credit."
+/>

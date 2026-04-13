@@ -1,0 +1,111 @@
+---
+title: "How Credit Scores Work"
+description: "Demystify the three-digit number that affects your rent, car loan, and more — and learn how to improve it."
+estimatedMinutes: 8
+track: "money-basics"
+order: 4
+---
+
+<script>
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+</script>
+
+## The Number Following You Around
+
+Your credit score is a three-digit number between 300 and 850, and it shows up in more places than you might expect.
+
+Landlords check it before renting you an apartment. Lenders use it to decide your mortgage rate — a difference of 100 points could mean paying $50,000 more in interest over 30 years. Insurance companies in many states use it to set premiums. Some employers even check it (with your permission) during hiring.
+
+A score of 750 vs. 620 isn't just a number — it's the difference between getting approved and getting rejected, between a 6% interest rate and a 12% one.
+
+The good news: once you understand how it works, improving your score is very doable.
+
+## The Five Factors (and How Much They Matter)
+
+The FICO score — the most widely used model — weighs five components:
+
+### 1. Payment History (35%)
+The biggest factor. Do you pay your bills on time? One missed payment can drop your score by 50–100 points. Two or three consecutive missed payments can crater it.
+
+The fix: set up autopay for at least the minimum payment on every account. You can always pay more manually — but the autopay ensures you never miss a due date by accident.
+
+### 2. Amounts Owed / Credit Utilization (30%)
+This is the percentage of your available credit you're currently using. If you have a $5,000 credit limit and owe $2,000, your utilization is 40%.
+
+The target: stay **below 30%** for a good score; below 10% for an excellent one. Utilization is calculated both per card and in aggregate across all cards.
+
+This is why maxing out a card hurts your score even if you pay it off every month — the snapshot might be taken mid-cycle before you pay.
+
+### 3. Length of Credit History (15%)
+How long you've had credit, how long your oldest account has been open, and the average age of all accounts. This rewards patience.
+
+The implication: **don't close old credit cards** even if you don't use them. A card you've had for 8 years is contributing to your average account age. Closing it shortens your history and can bump up your utilization ratio.
+
+### 4. Credit Mix (10%)
+Having different types of credit — credit cards, student loans, car loan, mortgage — demonstrates you can handle various debt types. This is a minor factor, and you shouldn't take on debt just to improve your mix.
+
+### 5. New Credit / Hard Inquiries (10%)
+Every time you apply for credit, the lender does a "hard inquiry" that slightly dings your score. Multiple applications in a short window signal financial stress.
+
+The exception: rate shopping for a mortgage or car loan. Credit bureaus treat multiple mortgage inquiries within 14–45 days as a single inquiry, since they understand you're comparison shopping.
+
+## Credit Report vs. Credit Score
+
+These are different things people often confuse:
+
+- **Credit report**: The full record of your credit history — every account, balance, payment, and inquiry. Three bureaus maintain reports: Equifax, Experian, and TransUnion.
+
+- **Credit score**: A number calculated *from* your credit report by a scoring model (usually FICO or VantageScore).
+
+You're entitled to one free credit report per year from each bureau at AnnualCreditReport.com (the official site — not the ones with TV commercials). Review them for errors. Mistakes — a wrong balance, an account you didn't open — are more common than people think, and they can hurt your score unfairly.
+
+## How to Build Credit from Scratch
+
+If you're new to credit, the catch-22 is real: you need credit history to get credit, but you need credit to build history.
+
+**Option 1: Secured credit card.** You put down a deposit (say, $500) that becomes your credit limit. Use it for small purchases, pay it off monthly. After 6–12 months of on-time payments, you'll have a solid score and can apply for a regular card.
+
+**Option 2: Become an authorized user.** Ask a parent or trusted family member to add you to their credit card. Their account history can appear on your report (though not all banks report authorized user accounts to bureaus).
+
+**Option 3: Credit-builder loan.** Offered by some credit unions and community banks. You "borrow" a small amount that sits in a savings account while you make monthly payments. When the loan is paid off, you get the money and a repayment history.
+
+## Improving a Damaged Score
+
+If your score took a hit, here's the recovery order of operations:
+
+1. **Bring all accounts current.** Get out of delinquency first — that stops the bleeding.
+2. **Pay down high-utilization cards.** Even dropping from 80% to 40% utilization can quickly lift your score.
+3. **Don't close accounts.** Even dormant cards are helping your history and utilization.
+4. **Wait.** Late payments stay on your report for 7 years, but their impact fades over time. A 2-year-old missed payment hurts far less than a recent one.
+5. **Don't apply for new credit while recovering.** Each hard inquiry is a small deduction; give your score time to heal.
+
+## What a Good Score Unlocks
+
+Here's a real example of why this matters. Say you're buying a $300,000 home with a 30-year mortgage:
+
+- At a 760+ score: ~6.5% rate → ~$1,896/month → $382,560 total interest
+- At a 620 score: ~8.2% rate → ~$2,257/month → $512,520 total interest
+
+That's a **$130,000 difference** over the life of the loan — just from having a better credit score. The same principle applies to car loans, personal loans, and the security deposit you pay on an apartment.
+
+Your credit score is worth investing time and attention in.
+
+<KeyTakeaways points={[
+  "Payment history (35%) is the biggest factor — set up autopay to never miss a due date",
+  "Keep credit utilization below 30% — ideally under 10% — for the best score",
+  "Don't close old credit cards; account age and utilization both matter",
+  "Check your free credit reports annually at AnnualCreditReport.com for errors",
+  "A 100-point score difference can cost (or save) you tens of thousands on a mortgage"
+]} />
+
+<QuickQuiz
+  question="You have one credit card with a $4,000 limit and owe $1,600. What is your credit utilization?"
+  options={[
+    { text: "16%", correct: false },
+    { text: "25%", correct: false },
+    { text: "40%", correct: true },
+    { text: "60%", correct: false }
+  ]}
+  explanation="Credit utilization = balance ÷ limit. $1,600 ÷ $4,000 = 40%. This is above the recommended 30% threshold and would moderately hurt your score. To get to 30%, you'd want to owe no more than $1,200 on this card."
+/>
