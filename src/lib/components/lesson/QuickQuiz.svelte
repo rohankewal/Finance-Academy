@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { progress } from '$lib/stores/progress.svelte';
+	import { getContext } from 'svelte';
 
 	let {
 		question,
@@ -15,8 +16,15 @@
 		lessonSlug?: string;
 	} = $props();
 
+	type CompletionContext = {
+		complete: (quizPassed: boolean, quizAttempts: number) => void;
+	};
+	const ctx = getContext<CompletionContext | undefined>('lesson-complete');
+
 	let selected = $state<number | null>(null);
 	let revealed = $state(false);
+	let totalAttempts = $state(0);
+	let alreadyReported = $state(false);
 
 	const isCorrect = $derived(selected !== null && options[selected]?.correct === true);
 
@@ -24,16 +32,22 @@
 		if (revealed) return;
 		selected = i;
 		revealed = true;
+		totalAttempts++;
 
-		// Auto-mark complete on correct answer
 		if (options[i]?.correct && trackSlug && lessonSlug) {
 			progress.markComplete(trackSlug, lessonSlug);
+			// Only report once — the first time the user gets it right
+			if (!alreadyReported) {
+				alreadyReported = true;
+				ctx?.complete(true, totalAttempts);
+			}
 		}
 	}
 
 	function reset() {
 		selected = null;
 		revealed = false;
+		// totalAttempts intentionally NOT reset — tracks across retries
 	}
 </script>
 
@@ -67,7 +81,6 @@
 					: 'border-zinc-200 bg-zinc-50 text-zinc-700 hover:border-zinc-300 hover:bg-zinc-100 disabled:cursor-default'}"
 			>
 				<div class="flex items-center gap-2.5">
-					<!-- Option indicator -->
 					<span
 						class="shrink-0 w-5 h-5 rounded-full border flex items-center justify-center text-xs font-medium
 							{revealed && i === selected && opt.correct
@@ -102,12 +115,14 @@
 			<p class="text-sm text-zinc-700">{explanation}</p>
 		</div>
 
-		<button
-			type="button"
-			onclick={reset}
-			class="mt-3 text-xs text-zinc-500 hover:text-zinc-700 transition-colors underline-offset-2 hover:underline"
-		>
-			Try again
-		</button>
+		{#if !isCorrect}
+			<button
+				type="button"
+				onclick={reset}
+				class="mt-3 text-xs text-zinc-500 hover:text-zinc-700 transition-colors underline-offset-2 hover:underline"
+			>
+				Try again
+			</button>
+		{/if}
 	{/if}
 </div>

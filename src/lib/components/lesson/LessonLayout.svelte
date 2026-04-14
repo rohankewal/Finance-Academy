@@ -1,10 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { Track, Lesson } from '$lib/data/tracks';
+	import { setContext } from 'svelte';
 	import MarkCompleteButton from './MarkCompleteButton.svelte';
 	import NextPrevNav from './NextPrevNav.svelte';
 	import ProgressBar from './ProgressBar.svelte';
 	import { progress } from '$lib/stores/progress.svelte';
+	import { auth } from '$lib/stores/auth.svelte';
+	import { notifications } from '$lib/stores/notifications.svelte';
+	import type { Badge } from '$lib/types/database';
 
 	let {
 		track,
@@ -30,6 +34,68 @@
 		blue: 'text-blue-700 bg-blue-50',
 	};
 	const accentClass = $derived(accentColors[track.accent] ?? accentColors.emerald);
+
+	// Completion context — shared with MarkCompleteButton and QuickQuiz via Svelte context
+	let completionFired = false;
+
+	async function handleComplete(quizPassed: boolean, quizAttempts: number) {
+		if (completionFired) return;
+		completionFired = true;
+
+		if (!auth.isLoggedIn) return; // localStorage-only for logged-out users
+
+		try {
+			const res = await fetch('/api/lessons/complete', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					trackSlug: track.slug,
+					lessonSlug: lesson.slug,
+					quizPassed,
+					quizAttempts,
+				}),
+			});
+
+			if (!res.ok) return;
+
+			const data = await res.json() as {
+				xpEarned: number;
+				newBadges: Badge[];
+				levelUp: boolean;
+				newLevel: { level: number; name: string } | null;
+				streakMilestone: number | null;
+				currentStreak: number;
+			};
+
+			// Show XP toast
+			if (data.xpEarned > 0) {
+				notifications.addXpToast(data.xpEarned, 'Lesson complete!');
+			}
+
+			// Show badge modals
+			for (const badge of data.newBadges) {
+				notifications.queueBadge(badge);
+			}
+
+			// Show level up modal
+			if (data.levelUp && data.newLevel) {
+				notifications.queueLevelUp(data.newLevel.level, data.newLevel.name);
+			}
+
+			// Show streak celebration
+			if (data.streakMilestone) {
+				notifications.queueStreak(data.streakMilestone);
+			}
+
+			// Refresh profile so TopNav XP/streak updates
+			await auth.refreshProfile();
+		} catch {
+			// Network error — silent fail; localStorage progress already saved
+			completionFired = false; // allow retry
+		}
+	}
+
+	setContext('lesson-complete', { complete: handleComplete });
 </script>
 
 <div class="min-h-screen">
@@ -49,7 +115,6 @@
 
 		<!-- Title area -->
 		<header class="mb-8">
-			<!-- Track badge + meta -->
 			<div class="flex flex-wrap items-center gap-2 mb-3">
 				<span class="text-xs font-semibold px-2 py-0.5 rounded-full {accentClass}">
 					{track.title}
@@ -70,7 +135,6 @@
 			</h1>
 			<p class="text-base text-zinc-500 leading-relaxed">{lesson.description}</p>
 
-			<!-- Track progress -->
 			{#if trackPct > 0}
 				<div class="mt-4">
 					<ProgressBar value={trackPct} label="{track.title} progress" />
@@ -90,6 +154,21 @@
 				Finance Academy is for educational purposes only — not financial advice.
 			</div>
 		</div>
+
+		<!-- Sign-up nudge for logged-out users -->
+		{#if !auth.isLoggedIn && !auth.loading}
+			<div class="mt-6 flex items-center justify-between gap-4 px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm">
+				<span class="text-zinc-600">
+					<strong class="text-zinc-800">Save your progress</strong> across devices — free, no spam.
+				</span>
+				<a
+					href="/auth/signin"
+					class="shrink-0 px-3.5 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-primary-dark transition-colors"
+				>
+					Sign up free
+				</a>
+			</div>
+		{/if}
 
 		<!-- Prev / Next navigation -->
 		<NextPrevNav {prev} {next} />

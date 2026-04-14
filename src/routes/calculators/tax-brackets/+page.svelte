@@ -1,6 +1,8 @@
 <script lang="ts">
 	import TaxBracketCalc from '$lib/components/calculators/TaxBracketCalc.svelte';
+	import CalculatorTracker from '$lib/components/calculators/CalculatorTracker.svelte';
 </script>
+<CalculatorTracker slug="tax-brackets" />
 
 <svelte:head>
 	<title>Tax Bracket Explainer — Finance Academy</title>

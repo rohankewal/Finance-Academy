@@ -1,6 +1,8 @@
 <script lang="ts">
 	import CreditCardTrapCalc from '$lib/components/calculators/CreditCardTrapCalc.svelte';
+	import CalculatorTracker from '$lib/components/calculators/CalculatorTracker.svelte';
 </script>
+<CalculatorTracker slug="credit-card-trap" />
 
 <svelte:head>
 	<title>Credit Card Interest Trap — Finance Academy</title>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { TRACKS } from '$lib/data/tracks';
 	import { progress } from '$lib/stores/progress.svelte';
+	import { auth } from '$lib/stores/auth.svelte';
 
 	const accentStyles: Record<string, { icon: string; bar: string; badge: string }> = {
 		emerald: { icon: 'bg-emerald-100 text-emerald-600', bar: 'bg-emerald-500', badge: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
@@ -42,48 +43,87 @@
 <section class="relative overflow-hidden bg-white border-b border-zinc-100">
 	<div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
 		<div class="max-w-2xl">
-			<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-semibold text-primary mb-6">
-				<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-					<polyline points="20 6 9 17 4 12"></polyline>
-				</svg>
-				Free. No account. No ads.
-			</div>
-			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]">
-				Learn money.<br />
-				<span class="text-primary">Change your life.</span>
-			</h1>
-			<p class="mt-5 text-lg text-zinc-500 leading-relaxed max-w-xl">
-				11 lessons covering budgeting, credit, debt, and investing — with interactive calculators to make it real.
-				No jargon. No prerequisites. Just clear explanations and honest numbers.
-			</p>
-			<div class="mt-7 flex flex-wrap gap-3">
-				<a
-					href="/learn"
-					class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors shadow-sm"
-				>
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-						<polygon points="5 3 19 12 5 21 5 3"></polygon>
-					</svg>
-					{completedCount > 0 ? 'Continue learning' : 'Start learning'}
-				</a>
-				<a
-					href="/calculators"
-					class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-zinc-200 text-zinc-700 font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors"
-				>
-					Try a calculator
-					<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<polyline points="9 18 15 12 9 6"></polyline>
-					</svg>
-				</a>
-			</div>
-
-			{#if overallPct > 0}
-				<div class="mt-6 flex items-center gap-3 p-3 bg-zinc-50 rounded-xl border border-zinc-200 w-fit">
-					<div class="w-28 h-2 rounded-full bg-zinc-200 overflow-hidden">
-						<div class="h-full rounded-full bg-primary transition-all" style="width: {overallPct}%"></div>
-					</div>
-					<span class="text-sm text-zinc-600">{completedCount} lessons complete</span>
+			{#if auth.isLoggedIn && auth.profile}
+				<!-- Logged-in hero -->
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-semibold text-primary mb-6">
+					{auth.avatarEmoji} Welcome back, {auth.displayName ?? 'learner'}
 				</div>
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]">
+					Keep going.<br />
+					<span class="text-primary">You're making progress.</span>
+				</h1>
+				<p class="mt-5 text-lg text-zinc-500 leading-relaxed max-w-xl">
+					{#if auth.currentStreak > 1}
+						You're on a <strong class="text-zinc-700">{auth.currentStreak}-day streak</strong>. 🔥 Don't break it now — pick up where you left off.
+					{:else}
+						You've completed {completedCount} lesson{completedCount === 1 ? '' : 's'}. Keep the momentum going.
+					{/if}
+				</p>
+				<div class="mt-7 flex flex-wrap gap-3">
+					<a
+						href="/dashboard"
+						class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors shadow-sm"
+					>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+							<polygon points="5 3 19 12 5 21 5 3"></polygon>
+						</svg>
+						Continue learning
+					</a>
+					<a
+						href="/dashboard"
+						class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-zinc-200 text-zinc-700 font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors"
+					>
+						View dashboard
+						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="9 18 15 12 9 6"></polyline>
+						</svg>
+					</a>
+				</div>
+			{:else}
+				<!-- Logged-out hero -->
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-semibold text-primary mb-6">
+					<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+						<polyline points="20 6 9 17 4 12"></polyline>
+					</svg>
+					Free. No account required.
+				</div>
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 leading-[1.1]">
+					Learn money.<br />
+					<span class="text-primary">Change your life.</span>
+				</h1>
+				<p class="mt-5 text-lg text-zinc-500 leading-relaxed max-w-xl">
+					11 lessons covering budgeting, credit, debt, and investing — with interactive calculators to make it real.
+					No jargon. No prerequisites. Just clear explanations and honest numbers.
+				</p>
+				<div class="mt-7 flex flex-wrap gap-3">
+					<a
+						href="/learn"
+						class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors shadow-sm"
+					>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+							<polygon points="5 3 19 12 5 21 5 3"></polygon>
+						</svg>
+						{completedCount > 0 ? 'Continue learning' : 'Start learning'}
+					</a>
+					<a
+						href="/calculators"
+						class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-zinc-200 text-zinc-700 font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors"
+					>
+						Try a calculator
+						<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="9 18 15 12 9 6"></polyline>
+						</svg>
+					</a>
+				</div>
+
+				{#if overallPct > 0}
+					<div class="mt-6 flex items-center gap-3 p-3 bg-zinc-50 rounded-xl border border-zinc-200 w-fit">
+						<div class="w-28 h-2 rounded-full bg-zinc-200 overflow-hidden">
+							<div class="h-full rounded-full bg-primary transition-all" style="width: {overallPct}%"></div>
+						</div>
+						<span class="text-sm text-zinc-600">{completedCount} lessons complete</span>
+					</div>
+				{/if}
 			{/if}
 		</div>
 	</div>

@@ -1,6 +1,8 @@
 <script lang="ts">
 	import DebtPayoffCalc from '$lib/components/calculators/DebtPayoffCalc.svelte';
+	import CalculatorTracker from '$lib/components/calculators/CalculatorTracker.svelte';
 </script>
+<CalculatorTracker slug="debt-payoff" />
 
 <svelte:head>
 	<title>Debt Payoff Planner — Finance Academy</title>

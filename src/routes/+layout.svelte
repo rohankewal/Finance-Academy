@@ -4,19 +4,29 @@
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import MobileDrawer from '$lib/components/layout/MobileDrawer.svelte';
+	import XpToast from '$lib/components/gamification/XpToast.svelte';
+	import BadgeUnlockModal from '$lib/components/gamification/BadgeUnlockModal.svelte';
+	import LevelUpModal from '$lib/components/gamification/LevelUpModal.svelte';
+	import StreakCelebration from '$lib/components/gamification/StreakCelebration.svelte';
 	import type { Snippet } from 'svelte';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { auth } from '$lib/stores/auth.svelte';
+	import { notifications } from '$lib/stores/notifications.svelte';
 
 	let { children }: { children: Snippet } = $props();
 
 	let mobileOpen = $state(false);
 
-	// Determine if we're on a page that should show the sidebar
-	import { page } from '$app/stores';
 	const showSidebar = $derived(
 		$page.url.pathname.startsWith('/learn') ||
 		$page.url.pathname.startsWith('/calculators') ||
 		$page.url.pathname.startsWith('/glossary'),
 	);
+
+	onMount(() => {
+		auth.init();
+	});
 </script>
 
 <!-- Top navigation -->
@@ -42,7 +52,7 @@
 			</main>
 		</div>
 	{:else}
-		<!-- Full width layout (homepage) -->
+		<!-- Full width layout (homepage, dashboard, etc.) -->
 		<main class="flex-1">
 			{@render children()}
 		</main>
@@ -50,3 +60,18 @@
 
 	<Footer />
 </div>
+
+<!-- Gamification notification layer (fixed, above everything) -->
+<XpToast toasts={notifications.xpToasts} onDismiss={(id) => notifications.dismissXpToast(id)} />
+
+{#if notifications.pendingBadges.length > 0}
+	<BadgeUnlockModal badge={notifications.pendingBadges[0]} onDismiss={() => notifications.dismissBadge()} />
+{/if}
+
+{#if notifications.pendingLevelUp}
+	<LevelUpModal levelUp={notifications.pendingLevelUp} onDismiss={() => notifications.dismissLevelUp()} />
+{/if}
+
+{#if notifications.pendingStreak}
+	<StreakCelebration streak={notifications.pendingStreak} onDismiss={() => notifications.dismissStreak()} />
+{/if}

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { progress } from '$lib/stores/progress.svelte';
+	import { auth } from '$lib/stores/auth.svelte';
+	import UserMenu from './UserMenu.svelte';
+	import StreakIndicator from './StreakIndicator.svelte';
+	import XpBar from './XpBar.svelte';
 
 	let { onMenuClick }: { onMenuClick: () => void } = $props();
 
@@ -20,7 +24,7 @@
 </script>
 
 <header class="fixed top-0 left-0 right-0 z-40 bg-white border-b border-zinc-200 h-[var(--topnav-height)]">
-	<div class="flex items-center h-full px-4 gap-4">
+	<div class="flex items-center h-full px-4 gap-3">
 		<!-- Hamburger (mobile) -->
 		<button
 			type="button"
@@ -61,25 +65,34 @@
 			{/each}
 		</nav>
 
-		<!-- Progress indicator (right) -->
+		<!-- Right side: XP bar + streak + user menu OR progress + CTA -->
 		<div class="ml-auto flex items-center gap-3 shrink-0">
-			{#if completed > 0}
-				<div class="hidden sm:flex flex-col items-end gap-0.5">
-					<span class="text-xs text-zinc-500 font-medium">{completed}/{total} lessons</span>
-					<div class="w-24 h-1.5 rounded-full bg-zinc-100 overflow-hidden">
-						<div
-							class="h-full rounded-full bg-primary transition-all duration-300"
-							style="width: {overallPct}%"
-						></div>
+			{#if auth.isLoggedIn}
+				<!-- Logged-in state -->
+				<XpBar />
+				<StreakIndicator />
+				<UserMenu />
+			{:else}
+				<!-- Logged-out state -->
+				{#if completed > 0}
+					<div class="hidden sm:flex flex-col items-end gap-0.5">
+						<span class="text-xs text-zinc-500 font-medium">{completed}/{total} lessons</span>
+						<div class="w-24 h-1.5 rounded-full bg-zinc-100 overflow-hidden">
+							<div
+								class="h-full rounded-full bg-primary transition-all duration-300"
+								style="width: {overallPct}%"
+							></div>
+						</div>
 					</div>
-				</div>
+				{/if}
+				<a
+					href="/learn"
+					class="hidden sm:flex text-sm font-medium px-3.5 py-1.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
+				>
+					{completed > 0 ? 'Continue' : 'Start learning'}
+				</a>
+				<UserMenu />
 			{/if}
-			<a
-				href="/learn"
-				class="hidden sm:flex text-sm font-medium px-3.5 py-1.5 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
-			>
-				{completed > 0 ? 'Continue' : 'Start learning'}
-			</a>
 		</div>
 	</div>
 </header>

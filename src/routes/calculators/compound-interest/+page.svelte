@@ -1,6 +1,8 @@
 <script lang="ts">
 	import CompoundInterestCalc from '$lib/components/calculators/CompoundInterestCalc.svelte';
+	import CalculatorTracker from '$lib/components/calculators/CalculatorTracker.svelte';
 </script>
+<CalculatorTracker slug="compound-interest" />
 
 <svelte:head>
 	<title>Compound Interest Calculator — Finance Academy</title>

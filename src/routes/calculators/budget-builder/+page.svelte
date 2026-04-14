@@ -1,6 +1,8 @@
 <script lang="ts">
 	import BudgetBuilderCalc from '$lib/components/calculators/BudgetBuilderCalc.svelte';
+	import CalculatorTracker from '$lib/components/calculators/CalculatorTracker.svelte';
 </script>
+<CalculatorTracker slug="budget-builder" />
 
 <svelte:head>
 	<title>Budget Builder (50/30/20) — Finance Academy</title>
