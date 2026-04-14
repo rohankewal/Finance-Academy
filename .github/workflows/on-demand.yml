@@ -36,8 +36,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install deps
         run: npm ci
@@ -67,7 +67,8 @@ jobs:
             - If the request is ambiguous or doesn't match any workflow, stop and open an issue explaining what's unclear rather than guessing.
             - Obey all Stop Conditions.
             - Do not merge. Only open PRs.
-          allowed_tools: "Bash,Read,Edit,Write,Glob,Grep"
+          claude_args: |
+            --allowedTools Bash,Read,Edit,Write,Glob,Grep
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -113,8 +114,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install deps
         run: npm ci

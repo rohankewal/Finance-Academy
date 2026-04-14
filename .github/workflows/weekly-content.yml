@@ -5,13 +5,13 @@ name: Weekly Content Drop
 
 on:
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: "0 9 * * 1"
   workflow_dispatch: # Also allow manual trigger from the GitHub UI
 
 permissions:
-  contents: write       # create branches, push commits
-  pull-requests: write  # open PRs
-  issues: write         # create issues if backlog is empty
+  contents: write # create branches, push commits
+  pull-requests: write # open PRs
+  issues: write # create issues if backlog is empty
 
 jobs:
   weekly-lesson:
@@ -27,8 +27,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -73,7 +73,8 @@ jobs:
             - Obey all Stop Conditions in AUTOPILOT.md. If any trigger, open a draft PR with "[NEEDS HUMAN]" in the title explaining the situation.
             - Do not merge anything. Only open PRs.
             - After opening the PR, exit cleanly.
-          allowed_tools: "Bash,Read,Edit,Write,Glob,Grep"
+          claude_args: |
+            --allowedTools Bash,Read,Edit,Write,Glob,Grep
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
