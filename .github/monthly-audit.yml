@@ -1,0 +1,93 @@
+name: Monthly Quality Audit
+
+# Runs at 9:00 AM UTC on the 1st of every month.
+# Claude audits all lessons, rewrites the lowest-scoring ones, opens a PR.
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  monthly-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45  # longer than weekly since rewrites take more tokens
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check if any lessons exist yet
+        id: check_lessons
+        run: |
+          count=$(find src/lib/content/lessons -name "*.svx" 2>/dev/null | wc -l)
+          echo "count=$count" >> $GITHUB_OUTPUT
+          if [ "$count" -lt 5 ]; then
+            echo "Fewer than 5 lessons exist — skipping audit (not enough signal)."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure git
+        if: steps.check_lessons.outputs.skip == 'false'
+        run: |
+          git config user.name "finance-academy-autopilot"
+          git config user.email "autopilot@users.noreply.github.com"
+
+      - name: Run Claude autopilot — quality audit
+        if: steps.check_lessons.outputs.skip == 'false'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are the Finance Academy content autopilot running the monthly quality audit workflow.
+
+            Read AUTOPILOT.md and execute **Workflow C — Quality Audit + Rewrite**.
+
+            Context:
+            - This is an automated scheduled run.
+            - You have full bash access. Use the `npm run lessons:audit` script.
+            - You have `gh` CLI for opening PRs.
+            - Repo is checked out. Git is configured.
+
+            Strict requirements:
+            - Follow Workflow C exactly.
+            - Rewrite at most 3 lessons in a single PR (per the workflow rules).
+            - Preserve each rewritten lesson's core teaching goal. Fix only the audit-flagged issues.
+            - Never change a lesson's `order`, `slug`, or `track` frontmatter fields.
+            - If zero lessons are flagged, still open a PR with the audit report so the human has a record.
+            - Obey all Stop Conditions.
+            - Do not merge. Only open PRs.
+          allowed_tools: "Bash,Read,Edit,Write,Glob,Grep"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Autopilot failed: monthly audit (${new Date().toISOString().slice(0,10)})`,
+              body: `The monthly audit workflow failed. Check the action logs: ${context.payload.repository.html_url}/actions/runs/${context.runId}`,
+              labels: ['autopilot-failure']
+            });

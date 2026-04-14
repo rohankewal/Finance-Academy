@@ -1,0 +1,166 @@
+name: On-Demand Autopilot
+
+# Two triggers:
+#   1. Manual dispatch from GitHub Actions UI (with a free-text request)
+#   2. Issue comment starting with "/autopilot" (lets you trigger from anywhere on mobile)
+
+on:
+  workflow_dispatch:
+    inputs:
+      request:
+        description: 'What should the autopilot do? (e.g. "add a lesson on Roth vs Traditional IRAs to investing-fundamentals, order 5")'
+        required: true
+        type: string
+
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  # Job 1: triggered by manual UI dispatch
+  manual-request:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Configure git
+        run: |
+          git config user.name "finance-academy-autopilot"
+          git config user.email "autopilot@users.noreply.github.com"
+
+      - name: Run Claude autopilot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are the Finance Academy content autopilot running an on-demand request.
+
+            Read AUTOPILOT.md, route the request to the correct workflow, and execute it.
+
+            **Human request:** ${{ inputs.request }}
+
+            Context:
+            - You have full bash access and `gh` CLI.
+            - Repo is checked out. Git is configured.
+
+            Requirements:
+            - Identify which workflow (A-E) the request maps to using the Task Router in AUTOPILOT.md.
+            - If the request is ambiguous or doesn't match any workflow, stop and open an issue explaining what's unclear rather than guessing.
+            - Obey all Stop Conditions.
+            - Do not merge. Only open PRs.
+          allowed_tools: "Bash,Read,Edit,Write,Glob,Grep"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Job 2: triggered by "/autopilot <request>" in an issue comment
+  comment-request:
+    if: |
+      github.event_name == 'issue_comment' &&
+      startsWith(github.event.comment.body, '/autopilot ') &&
+      github.event.comment.author_association == 'OWNER'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: React to comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: 'rocket'
+            });
+
+      - name: Extract request
+        id: extract
+        run: |
+          body="${{ github.event.comment.body }}"
+          # strip leading "/autopilot " (space-delimited)
+          request="${body#/autopilot }"
+          # escape for GITHUB_OUTPUT multiline
+          {
+            echo "request<<EOF"
+            echo "$request"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Configure git
+        run: |
+          git config user.name "finance-academy-autopilot"
+          git config user.email "autopilot@users.noreply.github.com"
+
+      - name: Run Claude autopilot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are the Finance Academy content autopilot responding to an issue comment request.
+
+            Read AUTOPILOT.md, route the request, execute the matching workflow.
+
+            **Human request:** ${{ steps.extract.outputs.request }}
+
+            Context:
+            - Triggered from issue #${{ github.event.issue.number }} by the repo owner.
+            - Full bash access, `gh` CLI available.
+            - Repo checked out, git configured.
+
+            Requirements:
+            - Identify the correct workflow using the Task Router.
+            - Obey all Stop Conditions.
+            - When you open the PR, link back to issue #${{ github.event.issue.number }} in the PR body.
+            - Do not merge.
+          allowed_tools: "Bash,Read,Edit,Write,Glob,Grep"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Reply to comment with status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const msg = status === 'success'
+              ? '✅ Autopilot completed. Check for a new PR linked to this issue.'
+              : '❌ Autopilot failed. See the action logs for details.';
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: msg
+            });
