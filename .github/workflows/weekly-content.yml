@@ -12,6 +12,7 @@ permissions:
   contents: write # create branches, push commits
   pull-requests: write # open PRs
   issues: write # create issues if backlog is empty
+  id-token: write
 
 jobs:
   weekly-lesson:
