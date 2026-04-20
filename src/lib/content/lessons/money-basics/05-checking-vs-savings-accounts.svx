@@ -1,0 +1,75 @@
+---
+title: "Checking vs. Savings Accounts"
+description: "Two accounts, two jobs — learn which one holds your spending money and which one grows it."
+estimatedMinutes: 7
+track: "money-basics"
+order: 5
+tags: ["banking", "checking", "savings", "beginner"]
+glossaryTerms: ["checking account", "savings account", "APY", "overdraft"]
+---
+
+<script>
+  import TryItYourself from '$lib/components/lesson/TryItYourself.svelte';
+  import KeyTakeaways from '$lib/components/lesson/KeyTakeaways.svelte';
+  import QuickQuiz from '$lib/components/lesson/QuickQuiz.svelte';
+  import BudgetBuilderCalc from '$lib/components/calculators/BudgetBuilderCalc.svelte';
+</script>
+
+Most people open a bank account and just... put all their money in it. One account, one pile, done. That works — until you realize you've been leaving money on the table every single month. A basic checking account at most big banks earns you 0.01% interest, or roughly one penny per year on $100. Meanwhile, savings accounts at online banks are paying 4–5% APY right now. The difference isn't complicated. It's just two accounts doing two different jobs.
+
+## The Big Idea
+
+A checking account is for money you're going to spend soon. A savings account is for money you're setting aside to grow. You need both — one keeps your daily finances running smoothly, and the other quietly earns interest while you're busy living your life. Keeping everything in checking means your savings earn almost nothing. Keeping everything in savings creates friction every time you need cash.
+
+## What a Checking Account Actually Does
+
+Your checking account is your financial home base. When your paycheck hits, it usually lands here first. You pay rent, buy groceries, fill up your gas tank — all from checking. Most checking accounts come with a debit card, the ability to write checks, and ATM access. Transactions clear fast, usually the same day.
+
+The catch: most checking accounts pay zero interest, or so close to zero it doesn't matter. A traditional checking account at a big bank might pay 0.01% APY. On a $2,000 balance, that's 20 cents a year — not a typo. Checking accounts aren't designed to grow your money. They're designed to move it.
+
+One thing to watch: overdraft fees. An overdraft happens when you spend more than your account holds, and it can trigger a $25–$35 fee at many banks. Some banks offer overdraft protection by linking your savings as a backup; others simply decline the transaction. Know which setup your bank uses before it surprises you.
+
+## What a Savings Account Actually Does
+
+A savings account is where money rests and grows while you're not spending it. The key difference: savings accounts pay interest — sometimes a lot of it.
+
+Traditional savings accounts at big banks pay close to nothing (0.01–0.05% APY). But high-yield savings accounts at online banks routinely pay 4–5% APY. On a $1,000 balance at 4.5% APY, you'd earn $45 in a year. On a $5,000 emergency fund, that's $225 — money you made by doing absolutely nothing.
+
+Both checking and savings accounts at FDIC-insured banks protect your deposits up to $250,000 per bank. Your money is equally safe in either type of account, even if the bank fails.
+
+The trade-off: savings accounts aren't built for constant withdrawals. Some limit you to six transactions per month. They're not for daily spending — they're for parking money you want to keep.
+
+<TryItYourself>
+  <BudgetBuilderCalc initialIncome={3000} initialSplit={{ needs: 50, wants: 30, savings: 20 }} />
+</TryItYourself>
+
+Look at the savings slice above. Even 20% of a $3,000/month income is $600 going to savings. In a high-yield savings account at 4.5% APY, that $600/month grows to over $7,800 in a year — including roughly $175 in interest. In a regular checking account at 0.01%, the same $600/month earns about 40 cents. The rate matters more than most people realize.
+
+## Why You Need Both — and How to Split It
+
+Here's the setup that works: keep one to two months of spending money in checking, and put everything else in savings.
+
+Say your monthly expenses are $2,000 — rent, food, transportation, subscriptions, everything. Keep $2,000–$4,000 in checking so you're never scrambling. Everything above that threshold — your emergency fund, money for a future trip, savings for a car — goes into a high-yield savings account.
+
+When you need to cover a big bill, transfer from savings to checking first, then pay. One extra step, but it earns you hundreds of dollars a year in interest you'd otherwise give up.
+
+For accounts, look for: a savings account with 4%+ APY, no monthly fees, and easy transfers; a checking account with no minimum balance fee and free ATM access. Having accounts at two different banks is completely normal. Transfers between them typically clear in one business day.
+
+<KeyTakeaways points={[
+  "Checking accounts are for spending — debit card, bills, daily transactions",
+  "Savings accounts earn interest and are designed for money you're not spending soon",
+  "High-yield savings accounts can pay 4–5% APY vs. 0.01% at big banks — a massive difference",
+  "The smart setup: keep 1–2 months of expenses in checking, put the rest in savings",
+  "Both account types are FDIC-insured up to $250,000 — your money is equally safe in either"
+]} />
+
+<QuickQuiz
+  question="You have $4,000 in checking earning 0.01% APY and $0 in savings. Your monthly expenses are $2,000. What's the better setup?"
+  options={[
+    { text: "Keep all $4,000 in checking so it's always accessible", correct: false },
+    { text: "Move all $4,000 to a high-yield savings account", correct: false },
+    { text: "Keep $2,000 in checking for expenses, move $2,000 to a high-yield savings account", correct: true },
+    { text: "Split it evenly — $2,000 in each — regardless of your actual expenses", correct: false }
+  ]}
+  explanation="Keeping one month of expenses in checking covers daily spending without scrambling. The other $2,000 in a high-yield savings account earns meaningful interest instead of sitting idle. Splitting evenly sounds balanced but ignores your actual spending needs."
+/>

@@ -46,6 +46,12 @@ export const TRACKS: Track[] = [
 				description: 'Demystify the three-digit number that affects your rent, car loan, and more — and learn how to improve it.',
 				estimatedMinutes: 8,
 			},
+			{
+				slug: 'checking-vs-savings-accounts',
+				title: 'Checking vs. Savings Accounts',
+				description: 'Two accounts, two jobs — learn which one holds your spending money and which one quietly grows it.',
+				estimatedMinutes: 7,
+			},
 		],
 	},
 	{
