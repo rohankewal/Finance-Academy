@@ -59,6 +59,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
 	},
 	// C
 	{
+		term: 'Checking Account',
+		definition: 'A bank account designed for everyday spending. Money flows in and out freely via debit card, checks, and ATM withdrawals. Earns little or no interest — it\'s built for access, not growth.',
+		learnMoreHref: '/learn/money-basics/checking-vs-savings-accounts',
+	},
+	{
 		term: 'Capital Gains',
 		definition: 'Profit from selling an investment for more than you paid. Short-term (held < 1 year) is taxed as ordinary income. Long-term (held ≥ 1 year) is taxed at lower rates.',
 	},
@@ -190,6 +195,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
 	},
 	// O
 	{
+		term: 'Overdraft',
+		definition: 'When you spend more money than your checking account holds. Many banks charge a $25–$35 fee per overdraft. You can often opt into overdraft protection by linking your savings account as a backup.',
+		learnMoreHref: '/learn/money-basics/checking-vs-savings-accounts',
+	},
+	{
 		term: 'Opportunity Cost',
 		definition: 'The value of the next-best option you give up when making a choice. Spending $200/month on subscriptions you don\'t use has an opportunity cost of ~$500,000 over 40 years if invested at 8%.',
 	},
@@ -212,6 +222,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
 		definition: 'How much investment volatility (ups and downs) you can emotionally and financially handle. Higher risk tolerance generally leads to more stocks in a portfolio.',
 	},
 	// S
+	{
+		term: 'Savings Account',
+		definition: 'A bank account designed to hold money you\'re not spending right away. Earns interest (especially at online banks offering high-yield rates). FDIC-insured up to $250,000 — safe, but not meant for daily transactions.',
+		learnMoreHref: '/learn/money-basics/checking-vs-savings-accounts',
+	},
 	{
 		term: 'S&P 500',
 		definition: 'An index tracking the 500 largest publicly traded US companies. Often used as a benchmark for the US stock market. Historically returns about 10% annually before inflation.',
