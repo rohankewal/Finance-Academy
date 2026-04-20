@@ -18,7 +18,7 @@ When a lesson ships, the autopilot marks it `- [x]` and links the PR.
 
 ### Money Basics track
 
-- [ ] money-basics | Checking vs. Savings Accounts | The difference between daily-use accounts and interest-earning accounts, and why you need both | calculator: none
+- [x] money-basics | Checking vs. Savings Accounts | The difference between daily-use accounts and interest-earning accounts, and why you need both | calculator: none — PR: https://github.com/rohankewal/Finance-Academy/pull/3
 - [ ] money-basics | High-Yield Savings Accounts | Why a HYSA beats a traditional savings account and how to pick one | calculator: CompoundInterestCalc
 - [ ] money-basics | How Banks Actually Make Money | Fractional reserve banking explained simply, so you understand what your bank is doing with your deposits | calculator: none
 
